@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="servlet.*"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,8 +23,10 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card-body border">
-                                                <h1 class="text-center user-title">Registrar Usuario</h1>
-                                                <form action="LoginServlet" method="POST" class="form-group form-container">
+                                                <h1 class="text-center user-title" >Registrar Usuario</h1>
+                                                <form id="form1" action="registrar_servlet" method="POST" class="form-group form-container"
+						      onsubmit="event.preventDefault(); return registrarUsuario();">
+							
                                                         <div class="form-group">
                                                                 <input autocomplete="off" type="text" id="nombre1" name="nombre"
 								       class="form-control" placeholder="Usuario" />
@@ -44,7 +47,8 @@
 				<div class="col-md-5 border">
 					<div class="card-body">
                                                 <h1 class="text-center">Registrar Estudiante</h1>
-                                                <form action="LoginServlet" method="POST" class="form-group form-container">
+                                                <form action="LoginServlet" method="POST" onsubmit="event.preventDefault(); return registrarEstudiante();"
+						      id="form2" class="form-group form-container">
                                                         <div class="form-group">
                                                                 <input autocomplete="off" type="text" id="nombre" name="nombre"
 								       class="form-control" placeholder="Carnet" />
@@ -68,7 +72,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<div class="card-body">
                                                 <h1 class="text-center " id="inscr-title">Inscribir Estudiante</h1>
                                                 <form action="LoginServlet" method="POST" class="form-group form-container">
@@ -101,7 +105,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="card-body">
-                                                <h1 class="text-center est-title">Estudiantes Inscritos</h1>
+                                                <h1 class="text-center" id="inscr-title">Estudiantes Inscritos</h1>
                                                 <form action="LoginServlet" method="POST" class="form-group form-container">
 							<div class="form-group text-center">
 								<table class="table">
@@ -124,13 +128,26 @@
 										</tr>
 									</tbody>
 								</table>
-								<input type="submit" class="btn btn-inline text-center  button4" 
-								       value="Inscribir" />
 							</div>
 						</form>
                                         </div>
 				</div>
 			</div>  
 		</div>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+                                                        function registrarUsuario() {
+                                                            Swal.fire('Se ha guardaro el Usuario', '', 'success');
+                                                            document.getElementById("form1").submit();
+                                                        }
+
+                                                        function registrarEstudiante() {
+                                                            Swal.fire('Estudiante Registrado', '', 'success');
+                                                            document.getElementById("form2").submit();
+
+                                                        }
+
+
+		</script>
 	</body>
 </html>
