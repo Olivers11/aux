@@ -98,3 +98,24 @@ h1{
 .button1:hover{
 	color: white;
 }
+
+
+
+/* for button 3*/
+
+.button3, .button3:hover{
+	background:#2C4FD6;
+	color: white;
+	font-family: "Secular One";
+	border-radius: 25px 25px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+}
+
+
+#inscr-title{
+	color:#2C4FD6;
+}
+
+

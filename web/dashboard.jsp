@@ -18,7 +18,7 @@
                         </nav>
                 </header>
 
-		<div class="container">
+		<div class="container card-container">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card-body border">
@@ -70,20 +70,31 @@
 			<div class="row">
 				<div class="col-md-5">
 					<div class="card-body">
-                                                <h1 class="text-center">Inscribir Estudiante</h1>
+                                                <h1 class="text-center " id="inscr-title">Inscribir Estudiante</h1>
                                                 <form action="LoginServlet" method="POST" class="form-group form-container">
-                                                        <div class="form-group">
-                                                                <input autocomplete="off" type="text" id="nombre" name="nombre"
-								       class="form-control" placeholder="Usuario" />
-                                                        </div>
-							<div class="form-group">
-								<input type="password" autocomplete="off" class="form-control" 
-								       id="contra" placeholder="Contraseña" name="contra"/>
-							</div>                                        
 							<div class="form-group text-center">
-
-								<input type="submit" class="btn btn-inline text-center  button" 
-								       value="Ingresar" />
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Carnet</th>
+											<th scope="col">Nombre</th>
+											<th scope="col">Nacimiento</th>
+											<th scope="col">Fecha Registro</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>Mark</td>
+											<td>Otto</td>
+											<td>@mdo</td>
+											<td>@mdo</td>
+										</tr>
+									</tbody>
+								</table>
+								<input type="submit" class="btn btn-inline text-center  button3" 
+								       value="Inscribir" />
 							</div>
                                                 </form>
                                         </div>
