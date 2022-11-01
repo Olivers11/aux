@@ -26,13 +26,13 @@
                                                 <h1 class="text-center">Inicio de Sesion</h1>
                                                 <form action="" method="POST" class="form-group form-container">
                                                         <div class="form-group">
-                                                                <input autocomplete="off" type="text" id="nombre" 
+                                                                <input autocomplete="off" type="text" id="nombre" name="nombre"
 								       class="form-control" placeholder="Usuario" />
                                                         </div>
                                                 </form>
                                                 <div class="form-group">
                                                         <input type="password" autocomplete="off" class="form-control" 
-							       id="contra" placeholder="Contraseña" />
+							       id="contra" placeholder="Contraseña" name="contra"/>
                                                 </div>                                        
 						<div class="form-group text-center">
 

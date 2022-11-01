@@ -4,6 +4,10 @@
 	color: white !important;
 }
 
+.navbar-brand{
+	font-family: "Secular One";
+}
+
 .card-container{
 	margin-top: 80px;
 }
