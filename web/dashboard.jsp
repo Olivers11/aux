@@ -47,7 +47,7 @@
 				<div class="col-md-5 border">
 					<div class="card-body">
                                                 <h1 class="text-center">Registrar Estudiante</h1>
-                                                <form action="estudiante_servlet" method="POST" 
+                                                <form action="estudiante_servlet" method="POST" onsubmit="event.preventDefault(); return registrarEstudiante();"
 						      id="form2" class="form-group form-container">
                                                         <div class="form-group">
                                                                 <input autocomplete="off" type="text" id="nombre" name="carnet"
@@ -59,8 +59,9 @@
 							</div>                                        
 
 							<div class="form-group">
+								<label>Fecha de Nacimiento</label>
 								<input type="date" autocomplete="off" class="form-control" 
-								       id="name" name="fecha"/>
+								       id="nombre" name="fecha" />
 							</div>
 							<div class="form-group text-center">
 

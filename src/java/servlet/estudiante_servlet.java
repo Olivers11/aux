@@ -31,8 +31,8 @@ public class estudiante_servlet extends HttpServlet {
 		System.out.println("Nombre: " + n);
 		System.out.println("Carnet: " + c);
 		System.out.println("Fecha: " + d);
-		response.getWriter().print(d);
 		EstudentController.crearEstudiante(n, c, d);
+		response.sendRedirect("index.jsp");
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -19,11 +19,40 @@ public class EstudentController extends connectionDB {
 			Statement stmt;
 			stmt = (Statement) conn.createStatement();
 			String query1 = "INSERT INTO ESTUDIANTE(CARNET, NOMBRE, FECHA_NACIMIENTO, FECHA_REGISTRO)values";
-			query1 += "('" + c + "', '" + n + "',TO_DATE('"+time+"', 'yyyy/mm/dd'),SYSDATE)";
+			query1 += "('" + c + "', '" + n + "',TO_DATE('" + time + "', 'yyyy/mm/dd'),SYSDATE)";
 			stmt.executeUpdate(query1);
 
 		} catch (SQLException ex) {
 			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
-		} 
+		}
+	}
+
+	public static void AgregarACola(String c) {
+
+		try {
+			Connection conn = createConnection();
+			Statement stmt;
+			stmt = (Statement) conn.createStatement();
+			String query1 = "insert into COLA_ESTUDIANTES(CARNET, FECHA_ADICION, ESTADO)values";
+			query1 += "('"+c+"', SYSDATE, '"+0+"')";
+			stmt.executeUpdate(query1);
+
+		} catch (SQLException ex) {
+			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+
+	public static void QuitarDeCola(String c){
+
+		try {
+			Connection conn = createConnection();
+			Statement stmt;
+			stmt = (Statement) conn.createStatement();
+			String query1 = "update COLA_ESTUDIANTE SET ESTADO=0 WHERE CARNET='"+c+"'";
+			stmt.executeUpdate(query1);
+
+		} catch (SQLException ex) {
+			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 }
