@@ -119,3 +119,17 @@ h1{
 }
 
 
+.button4, .button4:hover{
+	background: #7D4DBD;
+	color: white;
+	font-family: "Secular One";
+	border-radius: 25px 25px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+
+}
+
+.est-title{
+	color: #7D4DBD;
+}
