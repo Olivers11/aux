@@ -1,6 +1,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="controllers.connectionDB"%>
+<%@page import="servlet.LoginServlet"%>
 <!DOCTYPE html>
 <html>
         <head>
@@ -24,21 +25,21 @@
                                 <div class="col-md-5 mx-auto">
                                         <div class="card-body">
                                                 <h1 class="text-center">Inicio de Sesion</h1>
-                                                <form action="" method="POST" class="form-group form-container">
+                                                <form action="LoginServlet" method="POST" class="form-group form-container">
                                                         <div class="form-group">
                                                                 <input autocomplete="off" type="text" id="nombre" name="nombre"
 								       class="form-control" placeholder="Usuario" />
                                                         </div>
-                                                </form>
-                                                <div class="form-group">
-                                                        <input type="password" autocomplete="off" class="form-control" 
-							       id="contra" placeholder="Contraseña" name="contra"/>
-                                                </div>                                        
-						<div class="form-group text-center">
+							<div class="form-group">
+								<input type="password" autocomplete="off" class="form-control" 
+								       id="contra" placeholder="Contraseña" name="contra"/>
+							</div>                                        
+							<div class="form-group text-center">
 
-							<input type="submit" class="btn btn-inline text-center  button" 
-							       value="Ingresar" />
-						</div>
+								<input type="submit" class="btn btn-inline text-center  button" 
+								       value="Ingresar" />
+							</div>
+                                                </form>
                                         </div>
                                 </div>
                         </div>

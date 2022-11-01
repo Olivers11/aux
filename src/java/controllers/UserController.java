@@ -17,8 +17,18 @@ public class UserController extends connectionDB {
 			}
 			Statement s;
 			s = conn.createStatement();
-			ResultSet rs = s.executeQuery("select * from USUARIO WHERE NOMBRE='"+nombre+"' AND CONTRA='"+contra+"'");
-			return rs.next();
+			ResultSet rs = s.executeQuery("select * from USUARIO");
+			System.out.println(rs);
+			while (rs.next()) {
+				String n = rs.getString(1);
+				System.out.println("nombr: " + n);
+				String c = rs.getString(2);
+				if (n.equalsIgnoreCase(nombre) && contra.equalsIgnoreCase(c)) {
+					return true;
+				}
+			}
+			System.out.println("No habia nada ");
+			return false;
 
 		} catch (SQLException ex) {
 			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -26,4 +36,16 @@ public class UserController extends connectionDB {
 		return false;
 	}
 
+	public static void crearUsuario(String n, String c) {
+
+		try {
+			Connection conn = createConnection();
+			Statement stmt;
+			stmt = (Statement) conn.createStatement();
+			String query1 = "INSERT INTO USUARIO(NOMBRE, CONTRA)values('"+n+"', '"+c+"')";
+			stmt.executeUpdate(query1);
+		} catch (SQLException ex) {
+			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
 }

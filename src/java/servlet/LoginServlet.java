@@ -28,11 +28,12 @@ public class LoginServlet extends HttpServlet {
 		throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
 		String contra = request.getParameter("contra");
+		System.out.println("n: " +  nombre + " c: " + contra);
 		if(UserController.usuarioExiste(nombre, contra)){
-			response.getWriter().print("Bienvenido");
+			response.sendRedirect("dashboard.jsp");
 		}
 		else{
-			response.getWriter().print("Usuario no existe");
+			response.sendRedirect("index.jsp");
 		}
 		
 	}
