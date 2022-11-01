@@ -27,6 +27,7 @@ public class estudiante_servlet extends HttpServlet {
 		String c = request.getParameter("carnet");
 		String n = request.getParameter("nombre");
 		String d = request.getParameter("fecha");
+		d = d.replace('-', '/');
 		System.out.println("Nombre: " + n);
 		System.out.println("Carnet: " + c);
 		System.out.println("Fecha: " + d);
