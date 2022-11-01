@@ -1,14 +1,17 @@
 package controllers;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.Estudiante;
 
 public class EstudentController extends connectionDB {
 
@@ -62,10 +65,39 @@ public class EstudentController extends connectionDB {
 			Statement stmt;
 			stmt = (Statement) conn.createStatement();
 			String query1 = "INSERT INTO INSCRIPCION_ESTUDIANTES(CARNET, FECHA_ADICION) values";
-			query1 += "('"+c+"', SYSDATE)";
+			query1 += "('" + c + "', SYSDATE)";
 			stmt.executeUpdate(query1);
 		} catch (SQLException ex) {
 			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
+
+	public ArrayList<Estudiante> obtenerEstudiantes() {
+		ArrayList<Estudiante> pr = new ArrayList<Estudiante>();
+		try {
+			Connection conn = createConnection();
+			if (conn == null) {
+				System.out.println("Problemas de conexion");
+				return null;
+			}
+			Statement s;
+			s = conn.createStatement();
+			ResultSet rs = s.executeQuery("select * from estudiante ORDER BY FECHA_REGISTRO DESC");
+			while (rs.next()) {
+				String carnet = rs.getString(1);
+				String n = rs.getString(2);
+				java.sql.Date f1 = rs.getDate(3);
+				java.sql.Date f2 = rs.getDate(4);
+				Estudiante e = new Estudiante(carnet, n, f1, f2);
+				pr.add(e);
+			}
+
+			return pr;
+
+		} catch (SQLException ex) {
+			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return null;
+	}
+
 }
