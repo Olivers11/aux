@@ -8,6 +8,10 @@
         <servlet-name>registrar_servlet</servlet-name>
         <servlet-class>servlet.registrar_servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>estudiante_servlet</servlet-name>
+        <servlet-class>servlet.estudiante_servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>registrar_servlet</servlet-name>
         <url-pattern>/registrar_servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>estudiante_servlet</servlet-name>
+        <url-pattern>/estudiante_servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

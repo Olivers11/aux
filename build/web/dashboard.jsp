@@ -47,20 +47,20 @@
 				<div class="col-md-5 border">
 					<div class="card-body">
                                                 <h1 class="text-center">Registrar Estudiante</h1>
-                                                <form action="LoginServlet" method="POST" onsubmit="event.preventDefault(); return registrarEstudiante();"
+                                                <form action="estudiante_servlet" method="POST" 
 						      id="form2" class="form-group form-container">
                                                         <div class="form-group">
-                                                                <input autocomplete="off" type="text" id="nombre" name="nombre"
+                                                                <input autocomplete="off" type="text" id="nombre" name="carnet"
 								       class="form-control" placeholder="Carnet" />
                                                         </div>
 							<div class="form-group">
 								<input type="text" autocomplete="off" class="form-control" 
-								       id="contra" placeholder="Nombre" name="contra"/>
+								       id="contra" placeholder="Nombre" name="nombre"/>
 							</div>                                        
 
 							<div class="form-group">
 								<input type="date" autocomplete="off" class="form-control" 
-								       id="name" placeholder="Fecha Nacimiento" name="contra"/>
+								       id="name" name="fecha"/>
 							</div>
 							<div class="form-group text-center">
 
