@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Secular+One&display=swap');
+.navbar{
+	background: #49B7A4 !important;
+	color: white !important;
+}
+
+.card-container{
+	margin-top: 80px;
+}
+
+h1{
+	font-family: "Secular One";
+	color: #49B7A4;
+}
+
+
+/* form style*/
+.form-container{
+	margin-top: 45px;
+}
+
+#contra{
+	margin-top: 40px;
+}
+
+
+#nombre, #contra{
+	font-family: "Secular One";
+	color: #959798;
+	background: #EDF5F3;
+	outline: none;
+	border: none;
+	border-radius: 35px 35px;
+}
+
+
+#nombre:focus, #contra:focus{
+	border-color: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+
+.button{
+	background: #49B7A4;
+	color: white;
+	font-family: "Secular One";
+	border-radius: 25px 25px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+}
+
+
+.button:hover{
+	color: white;
+}
