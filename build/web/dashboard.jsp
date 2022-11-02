@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="servlet.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="models.Estudiante"%>
+<%@page import="controllers.EstudentController"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -89,13 +92,20 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
-											<td>@mdo</td>
-										</tr>
+										<%
+											ArrayList<Estudiante> estudiantes = EstudentController.obtenerEstudiantes();
+                                            int cont = 0;
+											for(Estudiante est : estudiantes){
+                                            		out.print("<tr>");
+                                            		out.print("<th scope='row'>"+cont+"</th>");
+                                                    out.print("<td>"+est.carnet+"</td>");
+                                                    out.print("<td>"+est.nombre+"</td>");
+                                                    out.print("<td>"+est.fecha_nacimiento+"</td>");
+                                                    out.print("<td>"+est.fecha_registro+"</td>");
+                                            		out.print("</tr>");
+                                                    cont++;
+                                            }
+										%>
 									</tbody>
 								</table>
 								<input type="submit" class="btn btn-inline text-center  button3" 

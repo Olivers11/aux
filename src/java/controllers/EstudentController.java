@@ -72,7 +72,7 @@ public class EstudentController extends connectionDB {
 		}
 	}
 
-	public ArrayList<Estudiante> obtenerEstudiantes() {
+	public static ArrayList<Estudiante> obtenerEstudiantes() {
 		ArrayList<Estudiante> pr = new ArrayList<Estudiante>();
 		try {
 			Connection conn = createConnection();
@@ -82,7 +82,8 @@ public class EstudentController extends connectionDB {
 			}
 			Statement s;
 			s = conn.createStatement();
-			ResultSet rs = s.executeQuery("select * from estudiante ORDER BY FECHA_REGISTRO DESC");
+			String query="select * from estudiante inner join cola_estudiantes ON estudiante.carnet = cola_estudiantes.carnet where cola_estudiantes.estado=0 ORDER BY FECHA_REGISTRO DESC";
+			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				String carnet = rs.getString(1);
 				String n = rs.getString(2);
@@ -99,5 +100,7 @@ public class EstudentController extends connectionDB {
 		}
 		return null;
 	}
+
+
 
 }
