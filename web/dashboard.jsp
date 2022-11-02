@@ -117,7 +117,7 @@
                                                 </form>
                                         </div>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<div class="card-body">
                                                 <h1 class="text-center" id="inscr-title">Estudiantes Inscritos</h1>
                                                 <form action="LoginServlet" method="POST" class="form-group form-container">

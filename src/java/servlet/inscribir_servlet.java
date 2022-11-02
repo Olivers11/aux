@@ -34,6 +34,7 @@ public class inscribir_servlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		ArrayList<Estudiante> estudiantes = EstudentController.obtenerEstudiantes();
+		//if(estudiantes.size() == 0) response.sendRedirect("dashboard.jsp");
 		String c = estudiantes.get(0).carnet;
 		EstudentController.QuitarDeCola(c);
 		EstudentController.InscribirEstudiante(c);
