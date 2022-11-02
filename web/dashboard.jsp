@@ -80,8 +80,9 @@
 					<div class="card-body">
                                                 <h1 class="text-center " id="inscr-title">Inscribir Estudiante</h1>
                                                 <form action="inscribir_servlet" method="POST" class="form-group form-container"
-						      onsubmit="event.preventDefault(); return inscribirEstudiante();
-						      id="form3">
+						      onsubmit="event.preventDefault();
+                                                                  return inscribirEstudiante();
+                                                                  id ="form3">
 							<div class="form-group text-center">
 								<table class="table">
 									<thead>
@@ -132,13 +133,20 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
-											<td>@mdo</td>
-										</tr>
+										<%
+											ArrayList<Estudiante> inscritos = EstudentController.obtenerEstudiantesInscritos();
+											int cont2 = 0;
+											for (Estudiante est : inscritos) {
+												out.print("<tr>");
+												out.print("<th scope='row'>" + cont2 + "</th>");
+												out.print("<td>" + est.carnet + "</td>");
+												out.print("<td>" + est.nombre + "</td>");
+												out.print("<td>" + est.fecha_nacimiento + "</td>");
+												out.print("<td>" + est.fecha_registro + "</td>");
+												out.print("</tr>");
+												cont2++;
+											}
+										%>
 									</tbody>
 								</table>
 							</div>
@@ -149,22 +157,22 @@
 		</div>
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script>
-                                                        function registrarUsuario() {
-                                                            Swal.fire('Se ha guardaro el Usuario', '', 'success');
-                                                            document.getElementById("form1").submit();
-                                                        }
+                                                              function registrarUsuario() {
+                                                                  Swal.fire('Se ha guardaro el Usuario', '', 'success');
+                                                                  document.getElementById("form1").submit();
+                                                              }
 
-                                                        function registrarEstudiante() {
-                                                            Swal.fire('Estudiante Registrado', '', 'success');
-                                                            document.getElementById("form2").submit();
+                                                              function registrarEstudiante() {
+                                                                  Swal.fire('Estudiante Registrado', '', 'success');
+                                                                  document.getElementById("form2").submit();
 
-                                                        }
+                                                              }
 
-							function inscribirEstudiante(){
-							    Swal.fire('Estudiante Inscrito', '', 'success');
-                                                            document.getElementById("form3").submit();
+                                                              function inscribirEstudiante() {
+                                                                  Swal.fire('Estudiante Inscrito', '', 'success');
+                                                                  document.getElementById("form3").submit();
 
-							}
+                                                              }
 
 
 		</script>

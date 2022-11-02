@@ -82,7 +82,7 @@ public class EstudentController extends connectionDB {
 			}
 			Statement s;
 			s = conn.createStatement();
-			String query="select * from estudiante inner join cola_estudiantes ON estudiante.carnet = cola_estudiantes.carnet where cola_estudiantes.estado=0 ORDER BY FECHA_REGISTRO DESC";
+			String query = "select * from estudiante inner join cola_estudiantes ON estudiante.carnet = cola_estudiantes.carnet where cola_estudiantes.estado=0 ORDER BY FECHA_REGISTRO DESC";
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				String carnet = rs.getString(1);
@@ -101,6 +101,33 @@ public class EstudentController extends connectionDB {
 		return null;
 	}
 
+	public static ArrayList<Estudiante> obtenerEstudiantesInscritos() {
+		ArrayList<Estudiante> pr = new ArrayList<Estudiante>();
+		try {
+			Connection conn = createConnection();
+			if (conn == null) {
+				System.out.println("Problemas de conexion");
+				return null;
+			}
+			Statement s;
+			s = conn.createStatement();
+			String query = "select * from estudiante inner join inscripcion_estudiantes ON estudiante.carnet = inscripcion_estudiantes.carnet ORDER BY FECHA_REGISTRO DESC";
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				String carnet = rs.getString(1);
+				String n = rs.getString(2);
+				java.sql.Date f1 = rs.getDate(3);
+				java.sql.Date f2 = rs.getDate(4);
+				Estudiante e = new Estudiante(carnet, n, f1, f2);
+				pr.add(e);
+			}
 
+			return pr;
+
+		} catch (SQLException ex) {
+			Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return null;
+	}
 
 }
