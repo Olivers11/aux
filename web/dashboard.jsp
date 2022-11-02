@@ -29,7 +29,7 @@
                                                 <h1 class="text-center user-title" >Registrar Usuario</h1>
                                                 <form id="form1" action="registrar_servlet" method="POST" class="form-group form-container"
 						      onsubmit="event.preventDefault(); return registrarUsuario();">
-							
+
                                                         <div class="form-group">
                                                                 <input autocomplete="off" type="text" id="nombre1" name="nombre"
 								       class="form-control" placeholder="Usuario" />
@@ -79,7 +79,9 @@
 				<div class="col-md-6">
 					<div class="card-body">
                                                 <h1 class="text-center " id="inscr-title">Inscribir Estudiante</h1>
-                                                <form action="LoginServlet" method="POST" class="form-group form-container">
+                                                <form action="inscribir_servlet" method="POST" class="form-group form-container"
+						      onsubmit="event.preventDefault(); return inscribirEstudiante();
+						      id="form3">
 							<div class="form-group text-center">
 								<table class="table">
 									<thead>
@@ -94,17 +96,17 @@
 									<tbody>
 										<%
 											ArrayList<Estudiante> estudiantes = EstudentController.obtenerEstudiantes();
-                                            int cont = 0;
-											for(Estudiante est : estudiantes){
-                                            		out.print("<tr>");
-                                            		out.print("<th scope='row'>"+cont+"</th>");
-                                                    out.print("<td>"+est.carnet+"</td>");
-                                                    out.print("<td>"+est.nombre+"</td>");
-                                                    out.print("<td>"+est.fecha_nacimiento+"</td>");
-                                                    out.print("<td>"+est.fecha_registro+"</td>");
-                                            		out.print("</tr>");
-                                                    cont++;
-                                            }
+											int cont = 0;
+											for (Estudiante est : estudiantes) {
+												out.print("<tr>");
+												out.print("<th scope='row'>" + cont + "</th>");
+												out.print("<td>" + est.carnet + "</td>");
+												out.print("<td>" + est.nombre + "</td>");
+												out.print("<td>" + est.fecha_nacimiento + "</td>");
+												out.print("<td>" + est.fecha_registro + "</td>");
+												out.print("</tr>");
+												cont++;
+											}
 										%>
 									</tbody>
 								</table>
@@ -157,6 +159,12 @@
                                                             document.getElementById("form2").submit();
 
                                                         }
+
+							function inscribirEstudiante(){
+							    Swal.fire('Estudiante Inscrito', '', 'success');
+                                                            document.getElementById("form3").submit();
+
+							}
 
 
 		</script>

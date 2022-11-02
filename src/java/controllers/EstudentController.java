@@ -51,7 +51,7 @@ public class EstudentController extends connectionDB {
 			Connection conn = createConnection();
 			Statement stmt;
 			stmt = (Statement) conn.createStatement();
-			String query1 = "update COLA_ESTUDIANTE SET ESTADO=0 WHERE CARNET='" + c + "'";
+			String query1 = "update COLA_ESTUDIANTE SET ESTADO=1 WHERE CARNET='" + c + "'";
 			stmt.executeUpdate(query1);
 
 		} catch (SQLException ex) {
